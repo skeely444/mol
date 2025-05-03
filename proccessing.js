@@ -1,3 +1,4 @@
+let player1Name, player2Name, player3Name, player4Name, player5Name, deMolName, player1Guess, player2Guess, player3Guess, player4Guess, player5Guess;
 function start() {
     const body = document.querySelector("body")
     const player1InputField = document.createElement("input")
@@ -11,7 +12,7 @@ function start() {
     return player1InputField, p, usedButton, body;
 }
 function player2() {
-    const player1Name = document.getElementById("player1Input").value
+    player1Name = document.getElementById("player1Input").value
     const body = document.querySelector("body")
     const p = document.querySelector("p")
     const usedButton = document.querySelector("button")
@@ -26,7 +27,7 @@ function player2() {
     return player1Name;
 }
 function player3() {
-    const player2Name = document.getElementById("player2Input").value
+    player2Name = document.getElementById("player2Input").value
     const body = document.querySelector("body")
     const p = document.querySelector("p")
     const usedButton = document.querySelector("button")
@@ -40,7 +41,7 @@ function player3() {
     usedButton.onclick = player4
 }
 function player4() {
-    const player3Name = document.getElementById("player3Input").value
+    player3Name = document.getElementById("player3Input").value
     const body = document.querySelector("body")
     const p = document.querySelector("p")
     const usedButton = document.querySelector("button")
@@ -54,7 +55,7 @@ function player4() {
     usedButton.onclick = player5
 }
 function player5() {
-    const player4Name = document.getElementById("player4Input").value
+    player4Name = document.getElementById("player4Input").value
     const body = document.querySelector("body")
     const p = document.querySelector("p")
     const usedButton = document.querySelector("button")
@@ -68,7 +69,7 @@ function player5() {
     usedButton.onclick = deMol
 }
 function deMol() {
-    const player5Name = document.getElementById("player5Input").value
+    player5Name = document.getElementById("player5Input").value
     const body = document.querySelector("body")
     const p = document.querySelector("p")
     const usedButton = document.querySelector("button")
@@ -82,11 +83,27 @@ function deMol() {
     usedButton.onclick = startGame
 }
 function startGame() {
+    deMolName = document.getElementById("deMolInput")
     const body = document.querySelector("body")
     const p = document.querySelector("p")
     const usedButton = document.querySelector("button")
     const removedInput = document.getElementById("deMolInput")
     body.removeChild(removedInput)
-    p.innerHTML = `Welkom ${player1Name}, ${player2Name}, ${player3Name}, ${player4Name} ${player5Name}`
-    usedButton.onclick = startGame
+    p.innerHTML = `Welkom ${player1Name}, ${player2Name}, ${player3Name}, ${player4Name} ${player5Name}. Vandaag spelen jullie de mol. Het spel bestaat uit een reeks van x verschillende oefeningen. Op het eine van het spel kunnen jullie één voor één jullie gokken wie de mol is. De speler die de mol raad, die wint. Geniet van het spel!`
+    usedButton.innerHTML = 'Begin'   
+    usedButton.onclick = opdracht1
+}
+function opdracht1() {
+    const body = document.querySelector("body")
+    const p = document.querySelector("p")
+    const usedButton = document.querySelector("button")
+    const codeInput = document.createElement("input")
+    body.appendChild(codeInput)
+    codeInput.id = "guessedCode"
+    p.innerHTML = `Tijd voor jullie eerste opdracht. Jullie hebben een kaart gekregen met 5 locaties op. Op deze locaties vinden jullie een cijfer of een letter die jullie nodig hebben voor de code. Elke speler mag maar één cijfer nemen, als je een cijfer:letter hebt kom je terug naar huis om te wachten op de rest. Maar pas op! Er is een zoeker in het spel, als de zoeker iemand vindt moet die speler terug naar huis gaan en daar 2 minuten wachten. Open hiervoor allemaal de Gotcha app a.u.b Voor deze opdracht krijgen jullie x minuten. Start!`
+    usedButton.innerHTML = 'verzend code.'   
+    usedButton.onclick = checkCode
+}
+function checkCode() {
+    LOREM
 }
