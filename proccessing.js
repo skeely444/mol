@@ -93,7 +93,7 @@ function startGame() {
     usedButton.innerHTML = 'Begin'   
     usedButton.onclick = opdracht1
 }
-function opdracht1() {
+ async function opdracht1() {
     const body = document.querySelector("body")
     const p = document.getElementById("mainP")
     const usedButton = document.querySelector("button")
@@ -104,7 +104,7 @@ function opdracht1() {
     usedButton.innerHTML = 'verzend code'   
     usedButton.onclick = checkCode
 }
-function checkCode() {
+function checkCode(codeOverride) {
     const enteredCode = document.getElementById("guessedCode").value
     const correctCode = "p5x9t45g"
     if (enteredCode === correctCode) {
@@ -171,5 +171,47 @@ function checkCode() {
     }
 }
 function checkAnswers () {
-    f
+    const question1EnteredAnswer = document.getElementById("input1").value
+    const question2EnteredAnswer = document.getElementById("input2").value
+    const question3EnteredAnswer = document.getElementById("input3").value
+    const question4EnteredAnswer = document.getElementById("input4").value
+    const question1CorrectAnswer = ("x")
+    const question2CorrectAnswer = ("x")
+    const question3CorrectAnswer = ("x")
+    const question4CorrectAnswer = ("x")
+    if (question1EnteredAnswer === question1CorrectAnswer && question2EnteredAnswer === question2CorrectAnswer && question3EnteredAnswer === question3CorrectAnswer && question4EnteredAnswer === question4CorrectAnswer) {
+        alert ("Wow! Jullie kennen elkaar goed. Beniewd of de volgende opdracht ook goed gaat lukken.")
+        const body = document.querySelector("body")
+        const p = document.getElementById("mainP")
+        const newButton = document.querySelector("button")
+        p.innerHTML = "Ronde 3, ?"
+        const question1Title = document.getElementById("title1")
+        const question1Question = document.getElementById("question1")
+        const question1Input = document.getElementById("input1")
+        const question2Title = document.getElementById("title2")
+        const question2Question = document.getElementById("question2")
+        const question2Input = document.getElementById("input2")
+        const question3Title = document.getElementById("title3")
+        const question3Question = document.getElementById("question3")
+        const question3Input = document.getElementById("input3")
+        const question4Title = document.getElementById("title4")
+        const question4Question = document.getElementById("question4")
+        const question4Input = document.getElementById("input4")
+        body.removeChild(question1Title)
+        body.removeChild(question1Question)
+        body.removeChild(question1Input)
+        body.removeChild(question2Title)
+        body.removeChild(question2Question)
+        body.removeChild(question2Input)
+        body.removeChild(question3Title)
+        body.removeChild(question3Question)
+        body.removeChild(question3Input)
+        body.removeChild(question4Title)
+        body.removeChild(question4Question)
+        body.removeChild(question4Input)
+    } else {
+        alert ("Sorry, één van de vragen is niet juist.")
+        const newButton = document.querySelector("button")
+        newButton.onclick = checkAnswers
+    }
 }
